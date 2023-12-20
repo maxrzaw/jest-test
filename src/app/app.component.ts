@@ -10,7 +10,7 @@ import { BehaviorSubject, Observable, filter, map } from 'rxjs';
 export class AppComponent {
   title = 'jest-test';
   public route$: Observable<string> = new BehaviorSubject<string>('default');
-    constructor(private readonly _route: Router) {
+  constructor(private readonly _route: Router) {
     this.route$ = _route.events.pipe(
       filter((x) => x instanceof RouterEvent),
       map((x) => (x as RouterEvent).url),
